@@ -2,6 +2,7 @@ FROM node:8-stretch
 MAINTAINER David Spreekmeester <david@grrr.nl>
 
 RUN \
+    mkdir -p /home/builder && \
     apt-get -y update && \
     # --- Basics
     apt-get -y install build-essential apt-utils git vim && \
@@ -24,5 +25,6 @@ RUN \
     # --- Install aws cli tool
     pip install awscli
 
+WORKDIR /home/builder
 EXPOSE 3000
 
