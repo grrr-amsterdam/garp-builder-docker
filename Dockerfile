@@ -7,6 +7,8 @@ RUN \
     apt-get -y install build-essential apt-utils git vim && \
     # --- Install general MySQL client for easy access to db container
     apt-get -y install mysql-client && \
+    # --- Install php-cli for config retrieval
+    apt-get -y install php-cli && \
     # --- Install ruby gems
     apt-get -y install ruby-dev rubygems-integration && \
     gem install scss_lint && \
