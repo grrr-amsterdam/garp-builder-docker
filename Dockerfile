@@ -1,5 +1,6 @@
 FROM node:8-stretch
 MAINTAINER David Spreekmeester <david@grrr.nl>
+ENV APPLICATION_ENV development
 
 RUN \
     mkdir -p /home/builder && \
@@ -9,7 +10,7 @@ RUN \
     # --- Install general MySQL client for easy access to db container
     apt-get -y install mysql-client && \
     # --- Install php-cli for config retrieval
-    apt-get -y install php-cli && \
+    apt-get -y install php-cli php-mbstring && \
     # --- Install ruby gems
     apt-get -y install ruby-dev rubygems-integration && \
     gem install scss_lint && \
