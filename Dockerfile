@@ -16,7 +16,7 @@ RUN \
     gem install scss_lint && \
     gem install semver && \
     # --- Install node modules
-    npm i -g gulp jshint && \
+    npm i -g gulp jshint gulp-load-plugins && \
     npm link gulp && \
     # --- Deploy tools
     gem install net-ssh -v 2.9.2 && \
@@ -24,7 +24,9 @@ RUN \
     # --- Install python package manager
     apt-get -y install python python-pip && \
     # --- Install aws cli tool
-    pip install awscli
+    pip install awscli && \
+    ln -s build/gulpfile.js gulpfile.js && \
+    ln -s build/package.json package.json
 
 WORKDIR /home/builder
 EXPOSE 3000
