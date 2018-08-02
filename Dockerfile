@@ -16,7 +16,7 @@ RUN \
     gem install scss_lint && \
     gem install semver && \
     # --- Install node modules
-    npm i -g gulp jshint gulp-load-plugins && \
+    npm i -g gulp jshint && \
     npm link gulp && \
     # --- Deploy tools
     gem install net-ssh -v 2.9.2 && \
