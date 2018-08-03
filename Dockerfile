@@ -17,7 +17,7 @@ RUN \
     # --- Install general MySQL client for easy access to db container
     apt-get -y install mysql-client && \
     # --- Install php-cli for config retrieval
-    apt-get -y install php-cli php-mbstring && \
+    apt-get -y install php-cli php-mbstring php-xml php-curl && \
     # --- Install ruby gems
     apt-get -y install ruby-dev rubygems-integration && \
     gem install scss_lint && \
