@@ -28,7 +28,9 @@ RUN \
     # --- Install aws cli tool
     pip install awscli && \
     ln -s $BUILD_HOME/build/gulpfile.js $BUILD_HOME/gulpfile.js && \
-    ln -s $BUILD_HOME/build/package.json $BUILD_HOME/package.json
+    ln -s $BUILD_HOME/build/package.json $BUILD_HOME/package.json && \
+    ln -s $BUILD_HOME/build/composer.json $BUILD_HOME/composer.json && \
+    ln -s $BUILD_HOME/build/Makefile $BUILD_HOME/Makefile
 
 WORKDIR $BUILD_HOME
 EXPOSE 3000
