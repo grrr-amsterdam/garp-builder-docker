@@ -1,8 +1,13 @@
 FROM node:8-stretch
 MAINTAINER David Spreekmeester <david@grrr.nl>
-ENV APPLICATION_ENV development
 
 ARG BUILD_HOME=/home/builder
+ENV APPLICATION_ENV development
+
+# Add PHP Composer path to current path
+ENV PATH $PATH:./vendor/bin
+ENV COMPOSER_ALLOW_SUPERUSER 1
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN \
     mkdir -p /home/builder && \
