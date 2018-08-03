@@ -2,6 +2,8 @@ FROM node:8-stretch
 MAINTAINER David Spreekmeester <david@grrr.nl>
 ENV APPLICATION_ENV development
 
+ARG BUILD_HOME=/home/builder
+
 RUN \
     mkdir -p /home/builder && \
     apt-get -y update && \
@@ -25,9 +27,9 @@ RUN \
     apt-get -y install python python-pip && \
     # --- Install aws cli tool
     pip install awscli && \
-    ln -s build/gulpfile.js gulpfile.js && \
-    ln -s build/package.json package.json
+    ln -s $BUILD_HOME/build/gulpfile.js $BUILD_HOME/gulpfile.js && \
+    ln -s $BUILD_HOME/build/package.json $BUILD_HOME/package.json
 
-WORKDIR /home/builder
+WORKDIR $BUILD_HOME
 EXPOSE 3000
 EXPOSE 3001
